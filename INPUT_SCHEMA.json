@@ -1,22 +1,22 @@
 {
-  "title": "Medium Scraper",
+  "title": "Scraper Input",
   "type": "object",
+  "schemaVersion": 1,
   "properties": {
-    "proxyConfiguration": {
-      "title": "Proxy configuration",
-      "type": "object",
-      "default": {
-        "useApifyProxy": true
-      }
+    "startUrls": {
+      "title": "Start URLs",
+      "type": "array",
+      "description": "URLs to scrape",
+      "editor": "requestListSources",
+      "default": [{"url": "https://example.com"}]
     },
-    "searchQuery": {
-      "title": "Search query",
-      "type": "string"
-    },
-    "maxArticles": {
-      "title": "Max articles",
+    "maxItems": {
+      "title": "Max items",
       "type": "integer",
-      "default": 50
+      "description": "Maximum number of items to scrape",
+      "default": 10,
+      "minimum": 1
     }
-  }
+  },
+  "required": ["startUrls"]
 }
